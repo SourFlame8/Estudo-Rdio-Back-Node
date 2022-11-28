@@ -1,0 +1,20 @@
+{
+  "name": "rdio-back",
+  "version": "1.0.0",
+  "description": "Estudo de Backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Estudo-Rdio-Back-Node"
+  },
+  "keywords": [
+    "Rdio",
+    "Back",
+    "Node"
+  ],
+  "author": "SourFlame8",
+  "license": "ISC"
+}
