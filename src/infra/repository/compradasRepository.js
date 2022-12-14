@@ -13,7 +13,7 @@ class compradasRepository {
                     [],
                     async (error, response) => {
                         if (error) return reject(new Error(error));
-                        return resolve({ comrpadas: response });
+                        return resolve({ compradas: response });
                     })
             } catch (error) {
                 return reject(new Error(error));

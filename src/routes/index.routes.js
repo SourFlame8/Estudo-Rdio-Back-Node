@@ -1,9 +1,10 @@
 const express = require("express");
 const routes = express.Router();
 // const multerUpload = require("../middlewares/multer")
+const CompradasController = require("../controllers/compradasController")
+const compradasController = new CompradasController();
 
-routes.get("/jsonTeste", (req, res) => res.send({sucess: "Hello, world!"}))
-
-routes.get("/TesteMusica", (req, res) => res.send({nome: "Black", artista: "Pearl Jam" ,album: "Ten" ,lincenca: "Dia" ,vencimento: "Dia" ,gravadora: "Gravadora"}))
+//Rotas das Musicas Compradas:
+routes.get("/Compradas", compradasController.listAll())
 
 module.exports = routes;
