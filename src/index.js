@@ -3,6 +3,7 @@ const routes = require("./routes/index.routes");
 const morgan = require("morgan");
 const fs = require("fs");
 const path = require("path");
+const cors = require("cors");
 require("dotenv").config({ path: __dirname + "/./../.env" });
 
 const app = express();
@@ -17,6 +18,7 @@ const data = new Date(
 
 app.use(morgan("dev"));
 app.use(express.json());
+app.use(cors());
 app.use(routes);
 
 app.listen(port, () => {
