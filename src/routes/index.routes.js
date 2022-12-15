@@ -8,6 +8,8 @@ const pendentesController = new PendentesController();
 
 //Rotas das Musicas Compradas:
 routes.get("/Compradas", compradasController.listAll())
+routes.post("/Compradas", compradasController.register())
+routes.delete("/Compradas/:id", compradasController.remove())
 
 //Rotas das Musicas Pendentes:
 routes.get("/Pendentes", pendentesController.listAll())
