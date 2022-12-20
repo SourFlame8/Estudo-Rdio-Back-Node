@@ -56,7 +56,7 @@ class pendentesRepository {
     remove(id){
         return new Promise((resolve, reject) => {
             try{
-                this.db.query(`REMOVE FROM pendentes WHERE id = ?`, 
+                this.db.query(`DELETE FROM pendentes WHERE id = ?`, 
                 [id],
                 async (error, response) => {
                     if (error) return reject (new Error(error));
