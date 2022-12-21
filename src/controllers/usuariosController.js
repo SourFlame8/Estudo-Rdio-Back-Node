@@ -1,15 +1,15 @@
-const Compradas = require("../infra/repository/compradasRepository");
-const compradas = new Compradas();
+const UsuariosRepository = require("../infra/repository/usuariosRepository");
+const usuariosRepository = new UsuariosRepository();
 
-class CompradasController {
+class usuariosController {
   /**
-   * Lista todas as musicas compradas
-   * @returns Array com dados das musicas
+   * Lista todos os usuarios
+   * @returns Array com dados dos usuarios
    */
 
   listAll() {
     return (req, res) => {
-      compradas
+      usuariosRepository
         .listAll()
         .then((response) => {
           if (response.error)
@@ -23,15 +23,15 @@ class CompradasController {
   }
 
   /**
-   * Registra uma nova musica comprada
-   * @returns Mensagem de Sucesso
+   * Registra um usuario
+   * @returns Mensagem de sucesso
    */
 
   register() {
     return (req, res) => {
       const { data } = req.body;
 
-      compradas
+      usuariosRepository
         .register(data)
         .then((response) => {
           if (response.error)
@@ -44,17 +44,35 @@ class CompradasController {
     };
   }
 
+  login() {
+    return (req, res) => {
+      const { data } = req.body;
+
+      usuariosRepository
+        .login(data)
+        .then((response) => {
+          if (response.error)
+            return res.status(response.error).send({ error: response.error });
+          res.status(200).send({ response });
+        })
+        .catch((error) => {
+          throw new Error(error);
+        });
+    };
+  }
+
   /**
-   * Remove uma musica comprada
-   * @returns Mensagem de Sucesso
+   * Remove um usuário
+   * @returns Mensagem de sucesso
    */
 
   remove() {
     return (req, res) => {
       const { id } = req.params;
+      const { email } = req.query;
 
-      compradas
-        .remove(id)
+      usuariosRepository
+        .remove(id, email)
         .then((response) => {
           if (response.error)
             return res.status(response.error).send({ error: response.error });
@@ -67,4 +85,4 @@ class CompradasController {
   }
 }
 
-module.exports = CompradasController;
+module.exports = usuariosController;

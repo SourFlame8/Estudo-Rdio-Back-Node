@@ -7,6 +7,9 @@ const compradasController = new CompradasController();
 //Pendentes:
 const PendentesController = require("../controllers/pendentesController");
 const pendentesController = new PendentesController();
+//Usuários:
+const UsuariosController = require("../controllers/usuariosController");
+const usuariosController = new UsuariosController();
 
 //Rotas das Musicas Compradas:
 routes.get("/Compradas", compradasController.listAll())
@@ -17,5 +20,11 @@ routes.delete("/Compradas/:id", compradasController.remove())
 routes.get("/Pendentes", pendentesController.listAll())
 routes.post("/Pendentes", pendentesController.register())
 routes.delete("/Pendentes/:id", pendentesController.remove())
+
+//Rotas de Usuários:
+routes.get("/Usuarios", usuariosController.listAll())
+routes.post("/Usuarios/register", usuariosController.register())
+routes.post("/Usuarios/login", usuariosController.login());
+routes.delete("/Usuarios/:id", usuariosController.remove())
 
 module.exports = routes;
